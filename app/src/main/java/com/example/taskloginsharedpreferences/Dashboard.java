@@ -2,6 +2,7 @@ package com.example.taskloginsharedpreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -38,8 +39,8 @@ public class Dashboard extends AppCompatActivity {
         String no = mSharedPref.getString(NUMBER_KEY, null);
 
         txtNama.setText("Nama Lengkap : " + name);
-        txtNomer.setText("Tanggal Lahir : " + no);
-        txtTtl.setText("No HP : " + ttl);
+        txtNomer.setText("No HP : " + no);
+        txtTtl.setText("Tanggal Lahir : " + ttl);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,5 +57,8 @@ public class Dashboard extends AppCompatActivity {
         finish();
         Toast.makeText(Dashboard.this, "Logout Berhasil !",
                 Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(Dashboard.this, Login.class);
+        startActivity(intent);
     }
 }
